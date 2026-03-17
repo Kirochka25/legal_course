@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Calendar, Clock, Video, Users, BookOpen, Award, 
-  UserCheck, Layout, CheckCircle2, ArrowRight, X, ChevronRight, CalendarDays, GraduationCap, Star, Briefcase, Zap
+  UserCheck, Layout, CheckCircle2, ArrowRight, X, ChevronRight, 
+  CalendarDays, GraduationCap, Star, Briefcase, Zap,
+  Instagram, Facebook, Youtube, Linkedin, Send
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -77,6 +79,15 @@ export default function App() {
     "20.05.2026 о 19:00", "25.05.2026 о 19:00", "27.05.2026 о 19:00", 
     "01.06.2026 о 19:00", "03.06.2026 о 19:00", "08.06.2026 о 19:00", 
     "10.06.2026 о 19:00", "15.06.2026 о 19:00"
+  ];
+
+  const socialLinks = [
+    { icon: <Instagram className="w-6 h-6" />, name: "Instagram", url: "https://www.instagram.com/bca.education/" },
+    { icon: <Facebook className="w-6 h-6" />, name: "Facebook", url: "https://www.facebook.com/business.consulting.academy" },
+    { icon: <Youtube className="w-6 h-6" />, name: "YouTube", url: "https://www.youtube.com/channel/UCut_4kLbgC4p2oK0OaJPAVw" },
+    { icon: <Linkedin className="w-6 h-6" />, name: "LinkedIn", url: "https://www.linkedin.com/company/bca-education-ua" },
+    { icon: <Send className="w-6 h-6" />, name: "Lawyers Club Bot", url: "https://t.me/Lawyers_Club_bot" },
+    { icon: <Send className="w-6 h-6" />, name: "Бібліотека Telegram", url: "https://t.me/bca_education" },
   ];
 
   return (
@@ -195,7 +206,28 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <footer className="py-24 text-center border-t border-white/5 opacity-40"><p className="text-[10px] font-black uppercase tracking-[0.6em]">Legal Digital Academy • 2026</p></footer>
+      <footer className="py-20 px-6 bg-blue-950/40 border-t border-white/5">
+        <div className="max-w-6xl mx-auto flex flex-col items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12 w-full">
+            {socialLinks.map((link, idx) => (
+              <motion.a
+                key={idx}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5, scale: 1.05 }}
+                className="flex flex-col items-center p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-400 hover:bg-white/10 transition-all text-center group"
+              >
+                <div className="text-yellow-400 mb-4 group-hover:scale-110 transition-transform">{link.icon}</div>
+                <span className="text-[10px] font-black uppercase tracking-widest">{link.name}</span>
+              </motion.a>
+            ))}
+          </div>
+          <p className="text-[10px] font-black uppercase tracking-[0.6em] opacity-40">
+            Legal Digital Academy • 2026
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
