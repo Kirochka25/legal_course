@@ -1,0 +1,18 @@
+html {
+  scroll-behavior: smooth;
+}
+/* Додайте це в самий кінець файлу index.css */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
